@@ -70,6 +70,7 @@ int main()
 		cout << "Кол-во контейнеров: " << easyData.second.size() << endl << endl;
 
 		run("Простейшая упаковка", simplestPackagingGrigorev, easyData);
+		run("Муравьиный алгоритм", AntSolutionLeontev, easyData);
 
 	}
 
@@ -79,6 +80,7 @@ int main()
 		cout << "Кол-во контейнеров: " << rndData.second.size() << endl << endl;
 
 		run("Простейшая упаковка", simplestPackagingGrigorev, rndData);
+		run("Муравьиный алгоритм", AntSolutionLeontev, rndData);
 	}
 
 	//Передаете худший вариант входных данных - worstData
@@ -87,6 +89,7 @@ int main()
 		cout << "Кол-во контейнеров: " << worstData.second.size() << endl << endl;
 
 		run("Простейшая упаковка", simplestPackagingGrigorev, worstData);
+		run("Муравьиный алгоритм", AntSolutionLeontev, worstData);
 	}
 
 	return 0;
