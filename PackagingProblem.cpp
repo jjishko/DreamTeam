@@ -1,6 +1,6 @@
 //КОММЕНТАРИИ И КОД КАРКАСА НЕ МЕНЯТЬ!
 /*
-1) Написать алгоритм в отдельном cpp файле 
+1) Написать алгоритм в отдельном cpp файле
 	(пример и инструкции в SimplestPackagingGrigorev.cpp)
 2) Создать объявление функции в Team.h
 3) Вызвать функцию алгоритма в main
@@ -71,6 +71,10 @@ int main()
 
 		run("Простейшая упаковка", simplestPackagingGrigorev, easyData);
 		run("Муравьиный алгоритм", AntSolutionLeontev, easyData);
+		run("Генетический алгоритм", GenerationsGlyb, easyData);
+		/*cout << "Генетический алгоритм:" << endl;
+		GenerationsGlyb(easyData.first, easyData.second);*/
+
 
 	}
 
@@ -81,6 +85,7 @@ int main()
 
 		run("Простейшая упаковка", simplestPackagingGrigorev, rndData);
 		run("Муравьиный алгоритм", AntSolutionLeontev, rndData);
+		run("Генетический алгоритм", GenerationsGlyb, rndData);
 	}
 
 	//Передаете худший вариант входных данных - worstData
@@ -90,6 +95,7 @@ int main()
 
 		run("Простейшая упаковка", simplestPackagingGrigorev, worstData);
 		run("Муравьиный алгоритм", AntSolutionLeontev, worstData);
+		run("Генетический алгоритм", GenerationsGlyb, worstData);
 	}
 
 	return 0;

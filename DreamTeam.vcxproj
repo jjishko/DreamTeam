@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="AntSolutionLeontev.cpp" />
     <ClCompile Include="DatasetGeneration.cpp" />
+    <ClCompile Include="GenerationGlyb.cpp" />
     <ClCompile Include="PackagingProblem.cpp" />
     <ClCompile Include="SimplestPackagingGrigorev.cpp" />
   </ItemGroup>
