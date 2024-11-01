@@ -70,7 +70,7 @@ int main()
 		cout << "Кол-во контейнеров: " << easyData.second.size() << endl << endl;
 
 		run("Простейшая упаковка", simplestPackagingGrigorev, easyData);
-		run("FirstFit алгоритм", firstFit, easyData);
+		run("FirstFit алгоритм", firstFitGolubeva, easyData);
 		run("Муравьиный алгоритм", AntSolutionLeontev, easyData);
 
 	}
@@ -81,7 +81,7 @@ int main()
 		cout << "Кол-во контейнеров: " << rndData.second.size() << endl << endl;
 
 		run("Простейшая упаковка", simplestPackagingGrigorev, rndData);
-		run("FirstFit алгоритм", firstFit, rndData);
+		run("FirstFit алгоритм", firstFitGolubeva, rndData);
 		run("Муравьиный алгоритм", AntSolutionLeontev, rndData);
 	}
 
@@ -91,7 +91,7 @@ int main()
 		cout << "Кол-во контейнеров: " << worstData.second.size() << endl << endl;
 
 		run("Простейшая упаковка", simplestPackagingGrigorev, worstData);
-		run("FirstFit алгоритм", firstFit, worstData);
+		run("FirstFit алгоритм", firstFitGolubeva, worstData);
 		run("Муравьиный алгоритм", AntSolutionLeontev, worstData);
 	}
 

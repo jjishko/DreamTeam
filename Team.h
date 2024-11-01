@@ -11,5 +11,5 @@ std::unordered_set<int> simplestPackagingGrigorev(const std::vector<int>& object
 	const std::vector<int>& containers);
 
 std::unordered_set<int> AntSolutionLeontev(const std::vector<int>& objects, const std::vector<int>& containers);
-std::unordered_set<int> firstFit(const std::vector<int>& objects, const std::vector<int>& containers);
+std::unordered_set<int> firstFitGolubeva(const std::vector<int>& objects, const std::vector<int>& containers);
 

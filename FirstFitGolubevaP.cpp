@@ -6,7 +6,7 @@
 
 using namespace std;
 
-unordered_set<int> firstFit(const vector<int>& objects, const vector<int>& containers)
+unordered_set<int> firstFitGolubeva(const vector<int>& objects, const vector<int>& containers)
 {
 	unordered_set<int> filledContainers; 
 	vector<int> remainingCapacity(containers); 
