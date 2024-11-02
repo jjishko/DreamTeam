@@ -71,6 +71,7 @@ int main()
 
 		run("Простейшая упаковка", simplestPackagingGrigorev, easyData);
 		run("Муравьиный алгоритм", AntSolutionLeontev, easyData);
+		run("Tabu Search", TabuSearchOsadchenko, easyData);
 
 	}
 
@@ -81,6 +82,8 @@ int main()
 
 		run("Простейшая упаковка", simplestPackagingGrigorev, rndData);
 		run("Муравьиный алгоритм", AntSolutionLeontev, rndData);
+		run("Tabu Search", TabuSearchOsadchenko, rndData);
+
 	}
 
 	//Передаете худший вариант входных данных - worstData
@@ -90,6 +93,8 @@ int main()
 
 		run("Простейшая упаковка", simplestPackagingGrigorev, worstData);
 		run("Муравьиный алгоритм", AntSolutionLeontev, worstData);
+		run("Tabu Search", TabuSearchOsadchenko, worstData);
+
 	}
 
 	return 0;
