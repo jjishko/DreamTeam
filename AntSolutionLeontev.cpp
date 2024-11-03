@@ -13,12 +13,12 @@
 using namespace std;
 
 // Параметры муравьиного алгоритма
-const int NUM_ANTS = 100;            // Количество муравьев
-const int MAX_ITERATIONS = 200;      // Количество итераций
-const double ALPHA = 1.0;            // Влияние феромонов
-const double BETA = 2.0;             // Влияние эвристики
-const double RHO = 0.3;              // Коэффициент испарения феромонов
-const double Q = 100.0;              // Константа для обновления феромонов
+const int NUM_ANTS = 100;            // Количество муравьев 100
+const int MAX_ITERATIONS = 200;      // Количество итераций 200
+const double ALPHA = 1.0;            // Влияние феромонов 1.0
+const double BETA = 2.0;             // Влияние эвристики 2.0
+const double RHO = 0.3;              // Коэффициент испарения феромонов 0.3
+const double Q = 100.0;              // Константа для обновления феромонов 100.0
 
 vector<vector<double>> initializePheromones(int numItems, int numBins) {
     return vector<vector<double>>(numItems, vector<double>(numBins, 1.0));
@@ -135,7 +135,13 @@ vector<int> antsolution(const vector<int>& weights, const vector<int>& binCapaci
 
 
 unordered_set<int> AntSolutionLeontev(const vector<int>& objects, const vector<int>& containers) {
-    vector<int> result = antsolution(objects, containers);
+    vector<int> c = containers;
+    vector<int> o = objects;
+    sort(c.begin(), c.end());
+    reverse(c.begin(), c.end());
+    sort(o.begin(), o.end());
+    reverse(o.begin(), o.end());
+    vector<int> result = antsolution(o, c);
     unordered_set<int> mySet(result.begin(), result.end());
     if (result.empty() || find(result.begin(), result.end(), -1) != result.end()) {
         mySet = {};
