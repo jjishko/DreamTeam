@@ -21,10 +21,13 @@
     <ClCompile Include="PackagingProblem.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="SimplestPackagingGrigorev.cpp">
+    <ClCompile Include="AntSolutionLeontev.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="AntSolutionLeontev.cpp">
+    <ClCompile Include="bestFitAllayarov.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="SimplestPackagingGrigorev.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="TabuSearchOsadchenko.cpp">

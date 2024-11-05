@@ -5,9 +5,8 @@
 using method = std::unordered_set<int>(*)
 (const std::vector<int>&, const std::vector<int>&);
 
-//Объявляете здесь свою функцию как по примеру
-std::unordered_set<int> simplestPackagingGrigorev(const std::vector<int>& objects,
-	const std::vector<int>& containers);
-
+//ГЋГЎГєГїГўГ«ГїГҐГІГҐ Г§Г¤ГҐГ±Гј Г±ГўГ®Гѕ ГґГіГ­ГЄГ¶ГЁГѕ ГЄГ ГЄ ГЇГ® ГЇГ°ГЁГ¬ГҐГ°Гі
+std::unordered_set<int> simplestPackagingGrigorev(const std::vector<int>& objects, const std::vector<int>& containers);
 std::unordered_set<int> AntSolutionLeontev(const std::vector<int>& objects, const std::vector<int>& containers);
 std::unordered_set<int> TabuSearchOsadchenko(const std::vector<int>& weights, const std::vector<int>& container);
+std::unordered_set<int> bestFitAllayarov(const std::vector<int>& objects, const std::vector<int>& containers);
