@@ -36,6 +36,9 @@
     <ClCompile Include="GenerationGlyb.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="FirstFitGolubevaP.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DatasetGeneration.h">

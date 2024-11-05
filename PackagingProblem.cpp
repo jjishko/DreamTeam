@@ -70,6 +70,7 @@ int main()
 		cout << "Êîë-âî êîíòåéíåðîâ: " << easyData.second.size() << endl << endl;
 
 		run("Ïðîñòåéøàÿ óïàêîâêà", simplestPackagingGrigorev, easyData);
+    run("FirstFit ��������", firstFitGolubeva, easyData);
     run("Àëãîðèòì Best Fit", bestFitAllayarov, easyData);
 		run("Tabu Search", TabuSearchOsadchenko, easyData);
     run("������������ ��������", GenerationsGlyb, easyData);
@@ -82,6 +83,7 @@ int main()
 		cout << "Êîë-âî êîíòåéíåðîâ: " << rndData.second.size() << endl << endl;
 
 		run("Ïðîñòåéøàÿ óïàêîâêà", simplestPackagingGrigorev, rndData);
+    run("FirstFit ��������", firstFitGolubeva, rndData);
     run("Àëãîðèòì Best Fit", bestFitAllayarov, rndData);
     run("Tabu Search", TabuSearchOsadchenko, rndData);
     run("������������ ��������", GenerationsGlyb, rndData);
@@ -94,6 +96,7 @@ int main()
 		cout << "Êîë-âî êîíòåéíåðîâ: " << worstData.second.size() << endl << endl;
 
 		run("Ïðîñòåéøàÿ óïàêîâêà", simplestPackagingGrigorev, worstData);
+    run("FirstFit ��������", firstFitGolubeva, worstData);
     run("Àëãîðèòì Best Fit", bestFitAllayarov, worstData);
 		run("Tabu Search", TabuSearchOsadchenko, worstData);
     run("������������ ��������", GenerationsGlyb, worstData);
