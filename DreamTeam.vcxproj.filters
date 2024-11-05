@@ -33,6 +33,9 @@
     <ClCompile Include="TabuSearchOsadchenko.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="GenerationGlyb.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DatasetGeneration.h">

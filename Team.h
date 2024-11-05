@@ -10,3 +10,4 @@ std::unordered_set<int> simplestPackagingGrigorev(const std::vector<int>& object
 std::unordered_set<int> AntSolutionLeontev(const std::vector<int>& objects, const std::vector<int>& containers);
 std::unordered_set<int> TabuSearchOsadchenko(const std::vector<int>& weights, const std::vector<int>& container);
 std::unordered_set<int> bestFitAllayarov(const std::vector<int>& objects, const std::vector<int>& containers);
+std::unordered_set<int> GenerationsGlyb(const std::vector<int>& weights, const std::vector<int>& binCapacities);

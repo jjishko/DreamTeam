@@ -70,10 +70,10 @@ int main()
 		cout << "Êîë-âî êîíòåéíåðîâ: " << easyData.second.size() << endl << endl;
 
 		run("Ïðîñòåéøàÿ óïàêîâêà", simplestPackagingGrigorev, easyData);
-		run("Ìóðàâüèíûé àëãîðèòì", AntSolutionLeontev, easyData);
+    run("Àëãîðèòì Best Fit", bestFitAllayarov, easyData);
 		run("Tabu Search", TabuSearchOsadchenko, easyData);
-		run("Àëãîðèòì Best Fit", bestFitAllayarov, easyData);
-
+    run("������������ ��������", GenerationsGlyb, easyData);
+    run("Ìóðàâüèíûé àëãîðèòì", AntSolutionLeontev, easyData);
 	}
 
 	//Òî æå ñàìîå, íî data = rndData
@@ -82,9 +82,10 @@ int main()
 		cout << "Êîë-âî êîíòåéíåðîâ: " << rndData.second.size() << endl << endl;
 
 		run("Ïðîñòåéøàÿ óïàêîâêà", simplestPackagingGrigorev, rndData);
+    run("Àëãîðèòì Best Fit", bestFitAllayarov, rndData);
+    run("Tabu Search", TabuSearchOsadchenko, rndData);
+    run("������������ ��������", GenerationsGlyb, rndData);
 		run("Ìóðàâüèíûé àëãîðèòì", AntSolutionLeontev, rndData);
-		run("Tabu Search", TabuSearchOsadchenko, rndData);
-		run("Àëãîðèòì Best Fit", bestFitAllayarov, rndData);
 	}
 
 	//Ïåðåäàåòå õóäøèé âàðèàíò âõîäíûõ äàííûõ - worstData
@@ -93,9 +94,10 @@ int main()
 		cout << "Êîë-âî êîíòåéíåðîâ: " << worstData.second.size() << endl << endl;
 
 		run("Ïðîñòåéøàÿ óïàêîâêà", simplestPackagingGrigorev, worstData);
-		run("Ìóðàâüèíûé àëãîðèòì", AntSolutionLeontev, worstData);
+    run("Àëãîðèòì Best Fit", bestFitAllayarov, worstData);
 		run("Tabu Search", TabuSearchOsadchenko, worstData);
-		run("Àëãîðèòì Best Fit", bestFitAllayarov, worstData);
+    run("������������ ��������", GenerationsGlyb, worstData);
+    run("Ìóðàâüèíûé àëãîðèòì", AntSolutionLeontev, worstData);
 	}
 
 	return 0;
