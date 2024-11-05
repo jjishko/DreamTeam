@@ -13,40 +13,42 @@
 using namespace std;
 
 // Параметры муравьиного алгоритма
-const int NUM_ANTS = 100;            // Количество муравьев
-const int MAX_ITERATIONS = 200;      // Количество итераций
-const double ALPHA = 1.0;            // Влияние феромонов
-const double BETA = 2.0;             // Влияние эвристики
-const double RHO = 0.3;              // Коэффициент испарения феромонов
-const double Q = 100.0;              // Константа для обновления феромонов
+const int NUM_ANTS = 100;            // Количество муравьев 100
+const int MAX_ITERATIONS = 200;      // Количество итераций 200
+const double ALPHA = 1.0;            // Влияние феромонов 1.0
+const double BETA = 2.0;             // Влияние эвристики 2.0
+const double RHO = 0.3;              // Коэффициент испарения феромонов 0.3
+const double Q = 100.0;              // Константа для обновления феромонов 100.0
 
 vector<vector<double>> initializePheromones(int numItems, int numBins) {
     return vector<vector<double>>(numItems, vector<double>(numBins, 1.0));
 }
 
 double heuristic(int remainingSpace) {
-    return 1.0 / (remainingSpace + 1);
+    return remainingSpace > 0 ? 1.0 / remainingSpace : 0.0;
 }
 
-
-
-int evaluateSolution(const vector<int>& solution, int numBins) {
-    vector<bool> used(numBins, false); // Размер массива должен соответствовать количеству контейнеров
+int evaluateSolution(const vector<int>& solution, int numBins, const vector<int>& capacities, const vector<int>& weights) {
+    vector<int> usedSpace(numBins, 0);
     int binsUsed = 0;
 
-    // Подсчитываем уникальные контейнеры, в которые положены элементы
-    for (int bin : solution) {
-        if (bin != -1 && bin < numBins && !used[bin]) {
-            used[bin] = true;
+    for (int i = 0; i < solution.size(); ++i) {
+        int bin = solution[i];
+        if (bin != -1 && bin < numBins) {
+            usedSpace[bin] += weights[i];
+        }
+    }
+
+    for (int i = 0; i < numBins; ++i) {
+        if (usedSpace[i] > 0 && usedSpace[i] <= capacities[i]) {
             binsUsed++;
         }
     }
+
     return binsUsed;
 }
 
-
-
-void updatePheromones(vector<vector<double>>& pheromones, const vector<vector<int>>& solutions, const vector<int>& capacities, const vector<int>& bestSolution, int bestSolutionBins) {
+void updatePheromones(vector<vector<double>>& pheromones, const vector<int>& bestSolution, int bestSolutionBins) {
     for (int i = 0; i < pheromones.size(); ++i) {
         for (int j = 0; j < pheromones[i].size(); ++j) {
             pheromones[i][j] *= (1 - RHO); // Испарение феромонов
@@ -62,19 +64,17 @@ void updatePheromones(vector<vector<double>>& pheromones, const vector<vector<in
     }
 }
 
-// Генерация решения для одного муравья
 vector<int> generateSolution(const vector<int>& weights, const vector<int>& binCapacities, vector<vector<double>>& pheromones) {
     int numItems = weights.size();
     int numBins = binCapacities.size();
-    vector<int> solution(numItems, -1); // Решение: какой предмет в каком контейнере
-    vector<int> remainingSpace = binCapacities; // Оставшееся место в контейнерах
+    vector<int> solution(numItems, -1);
+    vector<int> remainingSpace = binCapacities;
 
     for (int i = 0; i < numItems; ++i) {
         vector<double> probabilities(numBins, 0.0);
         double totalProbability = 0.0;
         bool validBinExists = false;
 
-        // Рассчитываем вероятность для каждого контейнера
         for (int j = 0; j < numBins; ++j) {
             if (remainingSpace[j] >= weights[i]) {
                 probabilities[j] = pow(pheromones[i][j], ALPHA) * pow(heuristic(remainingSpace[j]), BETA);
@@ -83,13 +83,11 @@ vector<int> generateSolution(const vector<int>& weights, const vector<int>& binC
             }
         }
 
-        // Если нет контейнеров с достаточным местом, пропускаем текущий предмет
         if (!validBinExists) {
             continue;
         }
 
-        // Выбираем контейнер на основе вероятностей
-        double randValue = (double)rand() / RAND_MAX * totalProbability;
+        double randValue = static_cast<double>(rand()) / RAND_MAX * totalProbability;
         double cumulativeProbability = 0.0;
         int chosenBin = -1;
         for (int j = 0; j < numBins; ++j) {
@@ -100,7 +98,6 @@ vector<int> generateSolution(const vector<int>& weights, const vector<int>& binC
             }
         }
 
-        // Добавляем предмет в выбранный контейнер, если контейнер найден
         if (chosenBin != -1) {
             solution[i] = chosenBin;
             remainingSpace[chosenBin] -= weights[i];
@@ -111,7 +108,7 @@ vector<int> generateSolution(const vector<int>& weights, const vector<int>& binC
 }
 
 vector<int> antsolution(const vector<int>& weights, const vector<int>& binCapacities) {
-    srand(time(0));
+    srand(static_cast<unsigned int>(time(0)));
     int numItems = weights.size();
     int numBins = binCapacities.size();
 
@@ -124,34 +121,30 @@ vector<int> antsolution(const vector<int>& weights, const vector<int>& binCapaci
         for (int ant = 0; ant < NUM_ANTS; ++ant) {
             vector<int> solution = generateSolution(weights, binCapacities, pheromones);
             solutions.push_back(solution);
-            int binsUsed = evaluateSolution(solution, numBins);
+            int binsUsed = evaluateSolution(solution, numBins, binCapacities, weights);
             if (binsUsed < bestSolutionBins) {
                 bestSolutionBins = binsUsed;
                 bestSolution = solution;
             }
         }
-        updatePheromones(pheromones, solutions, binCapacities, bestSolution, bestSolutionBins);
+        updatePheromones(pheromones, bestSolution, bestSolutionBins);
     }
 
     return bestSolution;
 }
 
+
 unordered_set<int> AntSolutionLeontev(const vector<int>& objects, const vector<int>& containers) {
-    vector<int> result = antsolution(objects, containers);
+    vector<int> c = containers;
+    vector<int> o = objects;
+    sort(c.begin(), c.end());
+    reverse(c.begin(), c.end());
+    sort(o.begin(), o.end());
+    reverse(o.begin(), o.end());
+    vector<int> result = antsolution(o, c);
+    unordered_set<int> mySet(result.begin(), result.end());
     if (result.empty() || find(result.begin(), result.end(), -1) != result.end()) {
-        result.clear();
-        unordered_set<int> mySet(result.begin(), result.end());
-        return mySet;
+        mySet = {};
     }
-    else {
-        vector<int> res;
-        for (int i = 0; i < result.size(); i++) {
-            if (find(res.begin(), res.end(), result[i]) == res.end()) {
-                res.push_back(result[i]);
-            }            
-        }
-        sort(res.begin(), res.end());
-        unordered_set<int> mySet(res.begin(), res.end());
-        return mySet;
-    }
+    return mySet;
 }

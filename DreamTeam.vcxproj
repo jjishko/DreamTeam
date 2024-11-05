@@ -130,8 +130,11 @@
     <ClCompile Include="AntSolutionLeontev.cpp" />
     <ClCompile Include="DatasetGeneration.cpp" />
     <ClCompile Include="FirstFitGolubevaP.cpp" />
+    <ClCompile Include="GenerationGlyb.cpp" />
     <ClCompile Include="PackagingProblem.cpp" />
     <ClCompile Include="SimplestPackagingGrigorev.cpp" />
+    <ClCompile Include="TabuSearchOsadchenko.cpp" />
+    <ClCompile Include="bestFitAllayarov.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DatasetGeneration.h" />

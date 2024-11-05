@@ -1,12 +1,12 @@
-//КОММЕНТАРИИ И КОД КАРКАСА НЕ МЕНЯТЬ!
+//ГЉГЋГЊГЊГ…ГЌГ’ГЂГђГ€Г€ Г€ ГЉГЋГ„ ГЉГЂГђГЉГЂГ‘ГЂ ГЌГ… ГЊГ…ГЌГџГ’Гњ!
 /*
-1) Написать алгоритм в отдельном cpp файле 
-	(пример и инструкции в SimplestPackagingGrigorev.cpp)
-2) Создать объявление функции в Team.h
-3) Вызвать функцию алгоритма в main
-4) Проверить работоспособность кода, чтобы не положить проект
-5) Выложить в репозиторий GitHub (в отдельную ветку!)
-6) Идем тусить
+1) ГЌГ ГЇГЁГ±Г ГІГј Г Г«ГЈГ®Г°ГЁГІГ¬ Гў Г®ГІГ¤ГҐГ«ГјГ­Г®Г¬ cpp ГґГ Г©Г«ГҐ 
+	(ГЇГ°ГЁГ¬ГҐГ° ГЁ ГЁГ­Г±ГІГ°ГіГЄГ¶ГЁГЁ Гў SimplestPackagingGrigorev.cpp)
+2) Г‘Г®Г§Г¤Г ГІГј Г®ГЎГєГїГўГ«ГҐГ­ГЁГҐ ГґГіГ­ГЄГ¶ГЁГЁ Гў Team.h
+3) Г‚Г»Г§ГўГ ГІГј ГґГіГ­ГЄГ¶ГЁГѕ Г Г«ГЈГ®Г°ГЁГІГ¬Г  Гў main
+4) ГЏГ°Г®ГўГҐГ°ГЁГІГј Г°Г ГЎГ®ГІГ®Г±ГЇГ®Г±Г®ГЎГ­Г®Г±ГІГј ГЄГ®Г¤Г , Г·ГІГ®ГЎГ» Г­ГҐ ГЇГ®Г«Г®Г¦ГЁГІГј ГЇГ°Г®ГҐГЄГІ
+5) Г‚Г»Г«Г®Г¦ГЁГІГј Гў Г°ГҐГЇГ®Г§ГЁГІГ®Г°ГЁГ© GitHub (Гў Г®ГІГ¤ГҐГ«ГјГ­ГіГѕ ГўГҐГІГЄГі!)
+6) Г€Г¤ГҐГ¬ ГІГіГ±ГЁГІГј
 */
 
 #include <iostream>
@@ -46,10 +46,10 @@ void run(string methodName, method foo, pair<const vector<int>&, const vector<in
 
 	share = share * 100 / std::accumulate(data.second.begin(), data.second.end(), 0);
 
-	cout << "Название алгоритма: " << methodName << endl;
-	cout << "Время работы: " << time << " мкс" << endl;
-	cout << "Кол-во занятых контейнеров: " << result.size() << endl;
-	printf("Доля занятого пространства: %.1f %%\n\n", share);
+	cout << "ГЌГ Г§ГўГ Г­ГЁГҐ Г Г«ГЈГ®Г°ГЁГІГ¬Г : " << methodName << endl;
+	cout << "Г‚Г°ГҐГ¬Гї Г°Г ГЎГ®ГІГ»: " << time << " Г¬ГЄГ±" << endl;
+	cout << "ГЉГ®Г«-ГўГ® Г§Г Г­ГїГІГ»Гµ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г®Гў: " << result.size() << endl;
+	printf("Г„Г®Г«Гї Г§Г Г­ГїГІГ®ГЈГ® ГЇГ°Г®Г±ГІГ°Г Г­Г±ГІГўГ : %.1f %%\n\n", share);
 }
 
 int main()
@@ -61,38 +61,46 @@ int main()
 	pair<vector<int>, vector<int>> rndData = randomDataset();
 	pair<vector<int>, vector<int>> worstData = worstDataset();
 
-	// По образцу добавляете свой алгоритм в main с помощью функции run:
-	// methodName - название алгоритма, 
-	// foo - указатель на функцию алгоритма (имя функции)
+	// ГЏГ® Г®ГЎГ°Г Г§Г¶Гі Г¤Г®ГЎГ ГўГ«ГїГҐГІГҐ Г±ГўГ®Г© Г Г«ГЈГ®Г°ГЁГІГ¬ Гў main Г± ГЇГ®Г¬Г®Г№ГјГѕ ГґГіГ­ГЄГ¶ГЁГЁ run:
+	// methodName - Г­Г Г§ГўГ Г­ГЁГҐ Г Г«ГЈГ®Г°ГЁГІГ¬Г , 
+	// foo - ГіГЄГ Г§Г ГІГҐГ«Гј Г­Г  ГґГіГ­ГЄГ¶ГЁГѕ Г Г«ГЈГ®Г°ГЁГІГ¬Г  (ГЁГ¬Гї ГґГіГ­ГЄГ¶ГЁГЁ)
 	// data - easyData
 	{
-		cout << "=========== ЛУЧШИЕ ДАННЫЕ" << endl;
-		cout << "Кол-во контейнеров: " << easyData.second.size() << endl << endl;
+		cout << "=========== Г‹Г“Г—ГГ€Г… Г„ГЂГЌГЌГ›Г…" << endl;
+		cout << "ГЉГ®Г«-ГўГ® ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г®Гў: " << easyData.second.size() << endl << endl;
 
-		run("Простейшая упаковка", simplestPackagingGrigorev, easyData);
-		run("FirstFit алгоритм", firstFitGolubeva, easyData);
-		run("Муравьиный алгоритм", AntSolutionLeontev, easyData);
-
+		run("ГЏГ°Г®Г±ГІГҐГ©ГёГ Гї ГіГЇГ ГЄГ®ГўГЄГ ", simplestPackagingGrigorev, easyData);
+    run("FirstFit пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", firstFitGolubeva, easyData);
+    run("ГЂГ«ГЈГ®Г°ГЁГІГ¬ Best Fit", bestFitAllayarov, easyData);
+		run("Tabu Search", TabuSearchOsadchenko, easyData);
+    run("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", GenerationsGlyb, easyData);
+    run("ГЊГіГ°Г ГўГјГЁГ­Г»Г© Г Г«ГЈГ®Г°ГЁГІГ¬", AntSolutionLeontev, easyData);
 	}
 
-	//То же самое, но data = rndData
+	//Г’Г® Г¦ГҐ Г±Г Г¬Г®ГҐ, Г­Г® data = rndData
 	{
-		cout << "=========== СЛУЧАЙНЫЕ ДАННЫЕ" << endl;
-		cout << "Кол-во контейнеров: " << rndData.second.size() << endl << endl;
+		cout << "=========== Г‘Г‹Г“Г—ГЂГ‰ГЌГ›Г… Г„ГЂГЌГЌГ›Г…" << endl;
+		cout << "ГЉГ®Г«-ГўГ® ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г®Гў: " << rndData.second.size() << endl << endl;
 
-		run("Простейшая упаковка", simplestPackagingGrigorev, rndData);
-		run("FirstFit алгоритм", firstFitGolubeva, rndData);
-		run("Муравьиный алгоритм", AntSolutionLeontev, rndData);
+		run("ГЏГ°Г®Г±ГІГҐГ©ГёГ Гї ГіГЇГ ГЄГ®ГўГЄГ ", simplestPackagingGrigorev, rndData);
+    run("FirstFit пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", firstFitGolubeva, rndData);
+    run("ГЂГ«ГЈГ®Г°ГЁГІГ¬ Best Fit", bestFitAllayarov, rndData);
+    run("Tabu Search", TabuSearchOsadchenko, rndData);
+    run("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", GenerationsGlyb, rndData);
+		run("ГЊГіГ°Г ГўГјГЁГ­Г»Г© Г Г«ГЈГ®Г°ГЁГІГ¬", AntSolutionLeontev, rndData);
 	}
 
-	//Передаете худший вариант входных данных - worstData
+	//ГЏГҐГ°ГҐГ¤Г ГҐГІГҐ ГµГіГ¤ГёГЁГ© ГўГ Г°ГЁГ Г­ГІ ГўГµГ®Г¤Г­Г»Гµ Г¤Г Г­Г­Г»Гµ - worstData
 	{
-		cout << "=========== ХУДШИЕ ДАННЫЕ" << endl;
-		cout << "Кол-во контейнеров: " << worstData.second.size() << endl << endl;
+		cout << "=========== Г•Г“Г„ГГ€Г… Г„ГЂГЌГЌГ›Г…" << endl;
+		cout << "ГЉГ®Г«-ГўГ® ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г®Гў: " << worstData.second.size() << endl << endl;
 
-		run("Простейшая упаковка", simplestPackagingGrigorev, worstData);
-		run("FirstFit алгоритм", firstFitGolubeva, worstData);
-		run("Муравьиный алгоритм", AntSolutionLeontev, worstData);
+		run("ГЏГ°Г®Г±ГІГҐГ©ГёГ Гї ГіГЇГ ГЄГ®ГўГЄГ ", simplestPackagingGrigorev, worstData);
+    run("FirstFit пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", firstFitGolubeva, worstData);
+    run("ГЂГ«ГЈГ®Г°ГЁГІГ¬ Best Fit", bestFitAllayarov, worstData);
+		run("Tabu Search", TabuSearchOsadchenko, worstData);
+    run("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", GenerationsGlyb, worstData);
+    run("ГЊГіГ°Г ГўГјГЁГ­Г»Г© Г Г«ГЈГ®Г°ГЁГІГ¬", AntSolutionLeontev, worstData);
 	}
 
 	return 0;
