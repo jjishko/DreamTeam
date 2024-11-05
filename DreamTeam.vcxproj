@@ -131,6 +131,7 @@
     <ClCompile Include="DatasetGeneration.cpp" />
     <ClCompile Include="PackagingProblem.cpp" />
     <ClCompile Include="SimplestPackagingGrigorev.cpp" />
+    <ClCompile Include="TabuSearchOsadchenko.cpp" />
     <ClCompile Include="bestFitAllayarov.cpp" />
   </ItemGroup>
   <ItemGroup>
