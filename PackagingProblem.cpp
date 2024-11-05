@@ -71,6 +71,7 @@ int main()
 
 		run("Простейшая упаковка", simplestPackagingGrigorev, easyData);
 		run("Муравьиный алгоритм", AntSolutionLeontev, easyData);
+		run("Алгоритм Best Fit", bestFitAllayarov, easyData);
 
 	}
 
@@ -81,6 +82,7 @@ int main()
 
 		run("Простейшая упаковка", simplestPackagingGrigorev, rndData);
 		run("Муравьиный алгоритм", AntSolutionLeontev, rndData);
+		run("Алгоритм Best Fit", bestFitAllayarov, rndData);
 	}
 
 	//Передаете худший вариант входных данных - worstData
@@ -90,6 +92,7 @@ int main()
 
 		run("Простейшая упаковка", simplestPackagingGrigorev, worstData);
 		run("Муравьиный алгоритм", AntSolutionLeontev, worstData);
+		run("Алгоритм Best Fit", bestFitAllayarov, worstData);
 	}
 
 	return 0;
