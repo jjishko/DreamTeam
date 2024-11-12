@@ -37,19 +37,19 @@ void run(string methodName, method foo, pair<const vector<int>&, const vector<in
 
 	auto time = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
 
-	float share = 0;
+	int sumOfFilledContainers = 0;
 
 	for (int ind : result)
 	{
-		share += data.second[ind];
+		sumOfFilledContainers += data.second[ind];
 	}
 
-	share = share * 100 / std::accumulate(data.second.begin(), data.second.end(), 0);
+	//share = share * 100 / std::accumulate(data.second.begin(), data.second.end(), 0);
 
 	cout << "Название алгоритма: " << methodName << endl;
 	cout << "Время работы: " << time << " мкс" << endl;
 	cout << "Кол-во занятых контейнеров: " << result.size() << endl;
-	printf("Доля занятого пространства: %.1f %%\n\n", share);
+	cout << "Сумма размеров занятых контейнеров: " << sumOfFilledContainers << endl << endl;
 }
 
 int main()
@@ -60,6 +60,7 @@ int main()
 	pair<vector<int>, vector<int>> easyData = easyDataset();
 	pair<vector<int>, vector<int>> rndData = randomDataset();
 	pair<vector<int>, vector<int>> worstData = worstDataset();
+	pair<vector<int>, vector<int>> impossibleData = impossibleDataset();
 
 	// По образцу добавляете свой алгоритм в main с помощью функции run:
 	// methodName - название алгоритма, 
@@ -67,6 +68,7 @@ int main()
 	// data - easyData
 	{
 		cout << "=========== ЛУЧШИЕ ДАННЫЕ" << endl;
+		cout << "Кол-во объектов: " << easyData.first.size() << endl;
 		cout << "Кол-во контейнеров: " << easyData.second.size() << endl << endl;
 
 		run("Простейшая упаковка", simplestPackagingGrigorev, easyData);
@@ -80,6 +82,7 @@ int main()
 	//То же самое, но data = rndData
 	{
 		cout << "=========== СЛУЧАЙНЫЕ ДАННЫЕ" << endl;
+		cout << "Кол-во объектов: " << rndData.first.size() << endl;
 		cout << "Кол-во контейнеров: " << rndData.second.size() << endl << endl;
 
 		run("Простейшая упаковка", simplestPackagingGrigorev, rndData);
@@ -93,6 +96,7 @@ int main()
 	//Передаете худший вариант входных данных - worstData
 	{
 		cout << "=========== ХУДШИЕ ДАННЫЕ" << endl;
+		cout << "Кол-во объектов: " << worstData.first.size() << endl;
 		cout << "Кол-во контейнеров: " << worstData.second.size() << endl << endl;
 
 		run("Простейшая упаковка", simplestPackagingGrigorev, worstData);
@@ -101,6 +105,19 @@ int main()
 		run("Tabu Search", TabuSearchOsadchenko, worstData);
 		run("Генетический алгоритм", GenerationsGlyb, worstData);
 		run("Муравьиный алгоритм", AntSolutionLeontev, worstData);
+	}
+
+	{
+		cout << "=========== НЕВОЗМОЖНЫЕ ДАННЫЕ" << endl;
+		cout << "Кол-во объектов: " << impossibleData.first.size() << endl;
+		cout << "Кол-во контейнеров: " << impossibleData.second.size() << endl << endl;
+
+		run("Простейшая упаковка", simplestPackagingGrigorev, impossibleData);
+		run("First Fit", firstFitGolubeva, impossibleData);
+		run("Best Fit", bestFitAllayarov, impossibleData);
+		run("Tabu Search", TabuSearchOsadchenko, impossibleData);
+		run("Генетический алгоритм", GenerationsGlyb, impossibleData);
+		run("Муравьиный алгоритм", AntSolutionLeontev, impossibleData);
 	}
 
 	return 0;
